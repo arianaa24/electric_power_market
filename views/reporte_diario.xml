@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="electric_power_reporte_diario" inherit_id="l10n_gt_extra.reporte_diario">
+        <xpath expr="//table/t/tbody/t/tr/td[2]" position="replace">
+            <td>
+                <span t-esc="l['asiento_contable']"/>
+            </td>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr/td[3]" position="replace">
+            <td>
+                <span t-esc="l['descripcion']"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>
