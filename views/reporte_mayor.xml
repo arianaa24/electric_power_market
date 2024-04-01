@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="electric_power_reporte_mayor" inherit_id="l10n_gt_extra.reporte_mayor">
+        <xpath expr="//table/t/thead/tr/th[3]" position="after">
+            <th>Asiento Contable</th>
+            <th>Descripción</th>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr/td[3]" position="after">
+            <td></td>
+            <td></td>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr/td[6]" position="attributes">
+            <attribute name="style">font-weight: bold;</attribute>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr/td[7]" position="attributes">
+            <attribute name="style">font-weight: bold;</attribute>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr/td[8]" position="attributes">
+            <attribute name="style">font-weight: bold;</attribute>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr/td[9]" position="attributes">
+            <attribute name="style">font-weight: bold;</attribute>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/t/tr/td[3]" position="after">
+            <td>
+                <span t-esc="fecha['asiento_contable']"/> 
+            </td>
+            <td>
+                <span t-esc="fecha['descripcion']"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>

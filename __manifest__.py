@@ -18,6 +18,7 @@
     
     'data': [
         'views/reporte_diario.xml',
+        'views/reporte_mayor.xml',
     ],
 
 }
