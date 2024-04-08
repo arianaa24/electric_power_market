@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="electric_power_reporte_diario" inherit_id="l10n_gt_extra.reporte_diario">
+        <xpath expr="//t[2]" position="replace">
+            <t t-set="data_report_margin_top" t-value="40"/>
+            <t t-set="data_report_header_spacing" t-value="30"/>
+        </xpath>
+        
+        <xpath expr="//div" position="inside">
+            <h2>Electric Power Market: Libro Diario</h2>
+            <div class="row mt32">
+                <div class="col-auto mw-100 mb-2">
+                    <strong>Número de identificación tributaria:</strong> <span t-field="current_company_id.vat"/><br/>
+                    <strong>Nombre comercial:</strong> <span t-field="current_company_id.partner_id.name"/><br/>
+                </div>
+                <div class="col-auto mw-100 mb-2">
+                    <strong>Domicilio fiscal:</strong> <span t-field="current_company_id.partner_id.street"/><br/>
+                    <strong>Registro del:</strong> <span t-esc="data['fecha_desde']" t-options="{'widget': 'date'}"/> al: <span t-esc="data['fecha_hasta']" t-options="{'widget': 'date'}"/><br/>
+                </div>
+            </div>
+        </xpath>
+        
+        <xpath expr="//div[@class='page']/h2" position="replace"></xpath>
+        
+        <xpath expr="//div[@class='page']/div" position="replace"></xpath>
+        
         <xpath expr="//table/t/tbody/t/tr/td[2]" position="replace">
             <td>
                 <span t-esc="l['asiento_contable']"/>
             </td>
         </xpath>
+        
         <xpath expr="//table/t/tbody/t/tr/td[3]" position="replace">
             <td>
                 <span t-esc="l['descripcion']"/>
             </td>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr[2]/td[3]" position="attributes">
+            <attribute name="style">background-color: #f2f2f2;</attribute>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr[2]/td[4]" position="attributes">
+            <attribute name="style">background-color: #f2f2f2;</attribute>
+        </xpath>
+        <xpath expr="//table/t/tbody/t/tr[2]/td[5]" position="attributes">
+            <attribute name="style">background-color: #f2f2f2;</attribute>
         </xpath>
     </template>
 </odoo>

@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="electric_power_reporte_mayor" inherit_id="l10n_gt_extra.reporte_mayor">
+        <xpath expr="//t[2]" position="replace">
+            <t t-set="data_report_margin_top" t-value="30"/>
+            <t t-set="data_report_header_spacing" t-value="20"/>
+        </xpath>
+        
+        <xpath expr="//div" position="inside">
+            <h2>Electric Power Market: Libro Mayor</h2>
+            <div class="row mt32">
+                <div class="col-xs-4">
+                    <strong>Número de identificación tributaria:</strong> <span t-field="current_company_id.vat"/><br/>
+                    <strong>Nombre comercial:</strong> <span t-field="current_company_id.partner_id.name"/><br/>
+                </div>
+                <div class="col-xs-4">
+                    <strong>Domicilio fiscal:</strong> <span t-field="current_company_id.partner_id.street"/><br/>
+                    <strong>Registro del:</strong> <span t-esc="data['fecha_desde']" t-options='{"widget": "date"}'/> al: <span t-esc="data['fecha_hasta']" t-options='{"widget": "date"}'/><br/>
+                </div>
+            </div>
+        </xpath>
+        
+        <xpath expr="//div[@class='page']/h2" position="replace"></xpath>
+        
+        <xpath expr="//div[@class='page']/div" position="replace"></xpath>
+        
         <xpath expr="//table/t/thead/tr/th[3]" position="after">
             <th>Asiento Contable</th>
             <th>Descripción</th>
         </xpath>
+        
+        <xpath expr="//table/t/tbody/t/tr" position="attributes">
+            <attribute name="style">background-color: #f2f2f2;</attribute>
+        </xpath>
+        
         <xpath expr="//table/t/tbody/t/tr/td[3]" position="after">
             <td></td>
             <td></td>
@@ -21,6 +49,7 @@
         <xpath expr="//table/t/tbody/t/tr/td[9]" position="attributes">
             <attribute name="style">font-weight: bold;</attribute>
         </xpath>
+        
         <xpath expr="//table/t/tbody/t/t/tr/td[3]" position="after">
             <td>
                 <span t-esc="fecha['asiento_contable']"/> 
