@@ -14,7 +14,7 @@
     'category': 'Uncategorized',
     'version': '1.0',
 
-    'depends': ['l10n_gt_extra'],
+    'depends': ['l10n_gt_extra', 'account_reports'],
     
     'data': [
         'views/reporte_diario.xml',
