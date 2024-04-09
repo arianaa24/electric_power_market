@@ -2,16 +2,16 @@
 <odoo>
     <template id="electric_power_reporte_diario" inherit_id="l10n_gt_extra.reporte_diario">
         <xpath expr="//t[2]" position="replace">
-            <t t-set="data_report_margin_top" t-value="40"/>
-            <t t-set="data_report_header_spacing" t-value="30"/>
+            <t t-set="data_report_margin_top" t-value="50"/>
+            <t t-set="data_report_header_spacing" t-value="45"/>
         </xpath>
         
         <xpath expr="//div" position="inside">
-            <h2>Electric Power Market: Libro Diario</h2>
+            <h2><span t-esc="current_company_id.name"/>: Libro Diario</h2>
             <div class="row mt32">
                 <div class="col-auto mw-100 mb-2">
                     <strong>Número de identificación tributaria:</strong> <span t-field="current_company_id.vat"/><br/>
-                    <strong>Nombre comercial:</strong> <span t-field="current_company_id.partner_id.name"/><br/>
+                    <strong>Nombre comercial:</strong> Electric Power Markets<br/>
                 </div>
                 <div class="col-auto mw-100 mb-2">
                     <strong>Domicilio fiscal:</strong> <span t-field="current_company_id.partner_id.street"/><br/>
@@ -36,13 +36,13 @@
             </td>
         </xpath>
         <xpath expr="//table/t/tbody/t/tr[2]/td[3]" position="attributes">
-            <attribute name="style">background-color: #f2f2f2;</attribute>
+            <attribute name="class">border border-dark</attribute>
         </xpath>
         <xpath expr="//table/t/tbody/t/tr[2]/td[4]" position="attributes">
-            <attribute name="style">background-color: #f2f2f2;</attribute>
+            <attribute name="class">border border-dark</attribute>
         </xpath>
         <xpath expr="//table/t/tbody/t/tr[2]/td[5]" position="attributes">
-            <attribute name="style">background-color: #f2f2f2;</attribute>
+            <attribute name="class">border border-dark</attribute>
         </xpath>
     </template>
 </odoo>
